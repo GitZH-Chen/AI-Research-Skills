@@ -23,9 +23,9 @@ Personal Codex skills for high-quality AI research.
 Writing assistant for AI top-tier conference/journal papers in LaTeX.
 
 - Drafting and polishing
-- Grammar check
-- BibTeX cleanup (`bib check`)
 - Rebuttal
+- `grammar check`, only fixes grammar and checks template/LaTeX/equation formatting against project rules (including `Aux/Guidelines.pdf`); no polishing or rewriting.
+- `bib check`, cleans and standardizes `.bib` entries for target top-tier venues, keeping core fields and normalized venue abbreviations.
 
 Path: `ai-paper-writing/`
 
