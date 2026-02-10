@@ -11,8 +11,16 @@ Treat the manuscript as submission-targeted work for an AI top conference or top
 If the user specifies a target venue and year, follow that target strictly.
 If unspecified, follow the writing style of top-tier AI conferences such as CVPR, ICCV, NeurIPS, ICML, and ICLR.
 
-- All files needed for the manuscript are expected in `./Aux`, such as references and the initial `.md` project description. 
-- For rebuttal, use `./Aux/Rebuttal`, including the review file `./Aux/Rebuttal/{venue}-Reviews.md`, where `{venue}` is a venue token such as `ICLR26`. If this review file exists, use it as auxiliary style/context reference.
+At the beginning of each skill invocation, return the checklist below and ask the user to confirm or update each item before writing:
+
+- `./Aux`: manuscript support materials
+- `./Aux/Rebuttal`: rebuttal materials
+- `./Aux/Rebuttal/{venue}-Reviews.md`: review file (for example `ICLR26-Reviews.md`).
+- `preamble.tex`: predefined LaTeX macros
+- `xx.bib`: bibliography source (`\bibliography{xx.bib}`)
+- `Aux/Guidelines.pdf`: formatting guideline.
+
+All checklist items are optional. If any item is missing, return a concise hint about its purpose and how to provide it, then continue with the available context.
 
 ---
 
