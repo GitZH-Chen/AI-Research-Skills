@@ -2,9 +2,7 @@
 
 Personal Codex skills for high-quality AI research.
 
-## Skill
-
-### `ai-paper-writing`
+## `ai-paper-writing`
 
 Writing assistant for AI top-tier conference/journal papers in LaTeX.
 
@@ -15,14 +13,14 @@ Writing assistant for AI top-tier conference/journal papers in LaTeX.
 
 Path: `ai-paper-writing/`
 
-## Usage
+### Usage
 
 ```md
 Use $ai-paper-writing.
 ...
 ```
 
-## File Conventions
+### File Conventions
 
 As defined in `ai-paper-writing/agents/openai.yaml`:
 
