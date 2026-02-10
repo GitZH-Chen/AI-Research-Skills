@@ -1,0 +1,11 @@
+interface:
+  display_name: "AI Paper Writing"
+  short_description: "Draft and polish top-tier AI papers"
+  # Project file conventions used by this skill:
+  # - ./Aux: all manuscript materials (references, initial .md project description, and related notes).
+  # - ./Aux/Rebuttal: rebuttal package folder.
+  # - ./Aux/Rebuttal/{venue}-Reviews.md: venue review file, e.g., ICLR26-Reviews.md.
+  # - preamble.tex: source of predefined LaTeX macros.
+  # - xx.bib: bibliography source used via \bibliography{xx.bib}.
+  # - Aux/Guidelines.pdf: optional formatting guideline reference if provided.
+  default_prompt: "Use $ai-paper-writing to draft, polish, or grammar-check my LaTeX manuscript for a target AI venue."
