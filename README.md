@@ -20,7 +20,7 @@ It installs when missing, and backs up then updates when already installed.
 
 ## `ai-paper-writing`
 
-Writing assistant for AI top-tier conference/journal papers in LaTeX. This skill is designed to work with a VSCode + LaTeX Workshop workflow.
+Writing assistant for AI top-tier conference/journal papers in LaTeX. This skill is designed to work with a VSCode + LaTeX Workshop workflow. This skill has been used in the polishing of several papers accepted at top-tier venues, and is continuously improved.
 
 - Drafting and polishing for manuscript sections
 - Rebuttal drafting and refinement
