@@ -1,6 +1,6 @@
-# MySkills
+# AI-Research-Skills
 
-MySkills is a collection of personal AI agent skills for high-quality research, with a focus on top-tier AI conference/journal paper writing in LaTeX.
+This is a collection of personal AI agent skills for research targeting top-tier ML venues. 
 
 ## Quick Update / Install
 
@@ -9,16 +9,16 @@ Use `update-skill.sh` to install or update skills from GitHub quickly.
 Typical usage:
 
 ```bash
-# Default: install/update ai-paper-writing from GitZH-Chen/MySkills (main)
+# Default: install/update ai-paper-writing from GitZH-Chen/AI-Research-Skills (main)
 ./update-skill.sh
 
 # Specify repo/path/ref
-./update-skill.sh --repo GitZH-Chen/MySkills --path ai-paper-writing --ref main
+./update-skill.sh --repo GitZH-Chen/AI-Research-Skills --path ai-paper-writing --ref main
 ```
 
 It installs when missing, and backs up then updates when already installed.
 
-Personal Codex skills for high-quality AI research.
+This repository will grow to include additional skills for high-quality AI research.
 
 ## `ai-paper-writing`
 
