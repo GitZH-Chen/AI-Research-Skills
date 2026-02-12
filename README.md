@@ -27,8 +27,6 @@ Writing assistant for AI top-tier conference/journal papers in LaTeX. This skill
 - Predefined command `grammar check`: grammar-only correction (no polishing or rewriting), plus LaTeX/template/equation rule checks, including optional checks against `Aux/Guidelines.pdf`
 - Predefined command `bib check`: clean and standardize `.bib` entries for supported top-tier venues, keep core fields, normalize venue abbreviations, and report potential duplicate references
 
-Path: `ai-paper-writing/`
-
 ### Usage
 
 You can structure your `AGENTS.md` as follows to include this skill in your workflow:
