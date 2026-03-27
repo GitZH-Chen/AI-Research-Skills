@@ -61,6 +61,9 @@ Writing assistant for OpenReview rebuttals targeting AI top-tier conferences and
 
 ```md
 Use $openreview-rebuttal.
+
+# Custom prompts
+# add your own prompts below
 ```
 
 ### File Conventions
