@@ -48,3 +48,25 @@ As defined in `ai-paper-writing/agents/openai.yaml`:
 - `preamble.tex`: predefined LaTeX macros
 - `xx.bib`: bibliography source (`\bibliography{xx.bib}`)
 - `Aux/Guidelines.pdf`: optional formatting guideline
+
+## `openreview-rebuttal`
+
+Writing assistant for OpenReview rebuttals targeting AI top-tier conferences and journals.
+
+- Drafting and polishing reviewer responses
+- Rebuttal-specific structure, heading, and reference-format checks
+- Predefined command `final check`: grammar-only correction, heading/bullet validation, and rebuttal reference-style checking
+
+### Usage
+
+```md
+Use $openreview-rebuttal.
+```
+
+### File Conventions
+
+As defined in `openreview-rebuttal/agents/openai.yaml`:
+
+- `./Aux`: manuscript support materials and references
+- `./Aux/Rebuttal`: rebuttal materials
+- `./Aux/Rebuttal/{venue}-Reviews.md` or `./Aux/Rebuttal/{venue}-{reviewer}.md`: review file(s), either a single file for all reviewers or one file per reviewer (for example `ICLR26-Reviews.md` or `ICLR26-R1.md`)
