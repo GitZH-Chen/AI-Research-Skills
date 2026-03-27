@@ -4,7 +4,7 @@ interface:
   # Project file conventions used by this skill:
   # - ./Aux: all manuscript materials (references, initial .md project description, and related notes).
   # - ./Aux/Rebuttal: rebuttal package folder.
-  # - ./Aux/Rebuttal/{venue}-Reviews.md: venue review file, e.g., ICLR26-Reviews.md.
+  # - ./Aux/Rebuttal/{venue}-Reviews.md or ./Aux/Rebuttal/{venue}-{reviewer}.md: review file(s), either one combined file or one file per reviewer, e.g., ICLR26-Reviews.md or ICLR26-R1.md.
   # - preamble.tex: source of predefined LaTeX macros.
   # - xx.bib: bibliography source used via \bibliography{xx.bib}.
   # - Aux/Guidelines.pdf: optional formatting guideline reference if provided.

@@ -44,7 +44,7 @@ As defined in `ai-paper-writing/agents/openai.yaml`:
 
 - `./Aux`: manuscript support materials
 - `./Aux/Rebuttal`: rebuttal materials
-- `./Aux/Rebuttal/{venue}-Reviews.md`: review file (for example `ICLR26-Reviews.md`)
+- `./Aux/Rebuttal/{venue}-Reviews.md` or `./Aux/Rebuttal/{venue}-{reviewer}.md`: review file(s), either a single file for all reviewers or one file per reviewer (for example `ICLR26-Reviews.md` or `ICLR26-R1.md`)
 - `preamble.tex`: predefined LaTeX macros
 - `xx.bib`: bibliography source (`\bibliography{xx.bib}`)
 - `Aux/Guidelines.pdf`: optional formatting guideline
