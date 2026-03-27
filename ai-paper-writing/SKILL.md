@@ -13,6 +13,8 @@ If unspecified, follow the writing style of top-tier AI conferences such as CVPR
 
 At the beginning of each skill invocation, return the checklist below and ask the user to confirm or update each item before writing:
 
+Treat the file layout below as a suggested default, not a requirement. If the user defines a different project structure in `# Custom prompts`, follow the user-defined structure instead.
+
 - `./Aux`: manuscript support materials
 - `./Aux/Rebuttal`: rebuttal materials
 - `./Aux/Rebuttal/{venue}-Reviews.md` or `./Aux/Rebuttal/{venue}-{reviewer}.md`: review file(s), either a single file for all reviewers or one file per reviewer (for example `ICLR26-Reviews.md` or `ICLR26-R1.md`).
@@ -80,7 +82,8 @@ When providing academic writing assistance or polishing text, follow these princ
 - When asked to write, polish, or rewrite a section, always read the surrounding context to ensure consistency in notation, terminology, and logic.  Adhere to the above LaTeX conventions and writing style rules. 
 
 ### 2.3 **Refs**
-All Refs as well as the manuscript can be found in `./Aux`.
+By default, all refs as well as the manuscript can be found in `./Aux`.
+If the user defines a different layout in `# Custom prompts`, follow that layout instead.
 
 ---
 

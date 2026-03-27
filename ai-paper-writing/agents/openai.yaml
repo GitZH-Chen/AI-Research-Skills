@@ -1,7 +1,9 @@
 interface:
   display_name: "AI Paper Writing"
   short_description: "Draft and polish top-tier AI papers"
-  # Project file conventions used by this skill:
+  # Suggested project file conventions used by this skill.
+  # These are defaults, not requirements. If the user defines a different layout in
+  # # Custom prompts, follow the user-defined structure instead.
   # - ./Aux: all manuscript materials (references, initial .md project description, and related notes).
   # - ./Aux/Rebuttal: rebuttal package folder.
   # - ./Aux/Rebuttal/{venue}-Reviews.md or ./Aux/Rebuttal/{venue}-{reviewer}.md: review file(s), either one combined file or one file per reviewer, e.g., ICLR26-Reviews.md or ICLR26-R1.md.

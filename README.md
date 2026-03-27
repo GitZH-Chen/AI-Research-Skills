@@ -38,9 +38,11 @@ Use $ai-paper-writing.
 # add your own prompts below
 ```
 
-### File Conventions
+### Suggested File Conventions
 
 As defined in `ai-paper-writing/agents/openai.yaml`:
+
+These are suggested defaults, not requirements. You can define your own project layout in `# Custom prompts`, and the skill should follow your custom structure instead.
 
 - `./Aux`: manuscript support materials
 - `./Aux/Rebuttal`: rebuttal materials
@@ -66,9 +68,11 @@ Use $openreview-rebuttal.
 # add your own prompts below
 ```
 
-### File Conventions
+### Suggested File Conventions
 
 As defined in `openreview-rebuttal/agents/openai.yaml`:
+
+These are suggested defaults, not requirements. You can define your own project layout in `# Custom prompts`, and the skill should follow your custom structure instead.
 
 - `./Aux`: manuscript support materials and references
 - `./Aux/Rebuttal`: rebuttal materials

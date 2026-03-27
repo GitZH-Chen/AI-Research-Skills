@@ -11,6 +11,8 @@ Treat the rebuttal as submission-targeted work for an AI top conference or top j
 
 At the beginning of each skill invocation, return the checklist below and ask the user to confirm or update each item before writing:
 
+Treat the file layout below as a suggested default, not a requirement. If the user defines a different project structure in `# Custom prompts`, follow the user-defined structure instead.
+
 - `./Aux`: manuscript support materials and references
 - `./Aux/Rebuttal`: rebuttal materials
 - `./Aux/Rebuttal/{venue}-Reviews.md` or `./Aux/Rebuttal/{venue}-{reviewer}.md`: review file(s), either a single file for all reviewers or one file per reviewer (for example `ICLR26-Reviews.md` or `ICLR26-R1.md`)
@@ -118,8 +120,9 @@ For each reviewer (R1, R2, R3...), use:
 
 ### 2.5 Refs
 
-All refs as well as the manuscript can be found in `./Aux`.
-Rebuttal-specific materials can be found in `./Aux/Rebuttal`.
+By default, all refs as well as the manuscript can be found in `./Aux`.
+By default, rebuttal-specific materials can be found in `./Aux/Rebuttal`.
+If the user defines a different layout in `# Custom prompts`, follow that layout instead.
 If the user provides venue-specific core references or a preferred reference list, prioritize those papers when building the rebuttal and the `References` section.
 
 ---
