@@ -36,6 +36,8 @@ All checklist items are optional. If any item is missing, return a concise hint 
 
 When generating rebuttal responses, strictly follow these structure and formatting rules:
 
+Use `template.md` in this skill directory as the default rebuttal skeleton. Follow its section layout and placeholders unless the user provides a venue-specific format or a different target structure.
+
 #### heading styles
 
 1. **Top-Level Section Titles**
