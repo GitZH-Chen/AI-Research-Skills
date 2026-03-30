@@ -9,14 +9,17 @@ Use `update-skill.sh` to install or update skills from GitHub quickly.
 Typical usage:
 
 ```bash
-# Default: install/update ai-paper-writing from GitZH-Chen/AI-Research-Skills (main)
+# Default: install/update all skills discovered in this repo from GitZH-Chen/AI-Research-Skills (main)
 ./update-skill.sh
+
+# Install/update one specific skill
+./update-skill.sh --path ai-paper-writing
 
 # Specify repo/path/ref
 ./update-skill.sh --repo GitZH-Chen/AI-Research-Skills --path ai-paper-writing --ref main
 ```
 
-It installs when missing, and backs up then updates when already installed.
+Without `--path`, the script discovers all local skill directories and processes each one. It installs when missing, and backs up then updates when already installed.
 
 ## `ai-paper-writing`
 
