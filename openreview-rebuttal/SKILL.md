@@ -60,9 +60,9 @@ Use `template.md` in this skill directory as the default rebuttal skeleton for e
 - **final check**
   When asked to perform a final check on a rebuttal file, you must do all of the following:
   1. **Grammar check.** Only identify and correct grammatical errors without rephrasing or polishing the sentences. Do not alter style, structure, or word choice. Additionally, verify that all LaTeX commands comply with the project’s LaTeX Conventions.
-  2. **Heading styles.** Check that all headings and bullets follow the rules specified in `heading styles`, and do not force adding a concise bold summary phrase when the original bullet is already short and clear without it.
+  2. **Heading styles.** Check that all existing headings and bullets follow the rules specified in `heading styles`, and do not force adding a concise bold summary phrase when the original bullet is already short and clear without it. Do not rewrite, rename, or otherwise modify the user's existing headings; only check their formatting. If a heading is missing, give a warning and let the user decide whether to add one.
   3. **Reference style.** Check that every `References` section follows the reference rules in **Style Requirements**: letter indices assigned in order of first appearance, listed in the same order at the end, and using the required Markdown quoting format. Report any issues and provide the corrected version.
-  4. When you do final check, please directly revise the file that we target at.
+  4. When you do final check, please directly revise the target file for grammar and formatting issues, but never add or change headings automatically. If a heading is missing, warn the user first and wait for their decision.
 
 ### 2.3 Style Requirements
 
