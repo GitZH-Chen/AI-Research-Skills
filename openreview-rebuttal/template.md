@@ -1,18 +1,15 @@
 ## Rebuttal
 
-We thank the reviewers for the constructive comments and helpful suggestions.
+We thank the reviewer` $\textcolor{purple}{QVyo}$ for the constructive comments and helpful suggestions.
 
 ---
 
-### Reviewer $\textcolor{purple}{QVyo}$ — Summary of concerns
-[One short sentence summarizing reviewer’s main concern.]
-
-## 1. [Short question title]
+## 1. [Short question/answer title]
 - **key point 1.** [Direct response.]
 - **key point 2.** [Direct response.]
 - ....
 
-## 2. [Short question title]
+## 2. [Short question/answer title]
 - **key point 1.** [Direct response.]
 - **key point 2.** [Direct response.]
 - ...
