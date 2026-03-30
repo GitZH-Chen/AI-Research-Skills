@@ -8,14 +8,14 @@ We thank the reviewers for the constructive comments and helpful suggestions.
 [One short sentence summarizing reviewer’s main concern.]
 
 ## 1. [Short question title]
-- **Answer.** [Direct response.]
-- **Clarification.** [...]
-- **Evidence.** [...]
-- **Revision.** [...]
+- **key point 1.** [Direct response.]
+- **key point 2.** [Direct response.]
+- ....
 
 ## 2. [Short question title]
-- **Answer.** [...]
-- **Evidence.** [...]
+- **key point 1.** [Direct response.]
+- **key point 2.** [Direct response.]
+- ...
 
 ---
 
