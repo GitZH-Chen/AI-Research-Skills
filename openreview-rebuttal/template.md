@@ -43,6 +43,6 @@ We thank Reviewer $\textcolor{red}{ZRPd}$ for the valuable feedbacks. Below is o
 ---
 
 ## References
-[a] [Title of paper 1]  
-[b] [Title of paper 2]  
-[c] [Title of paper 3]
+> [a] [Title of paper 1]  
+> [b] [Title of paper 2]  
+> [c] [Title of paper 3]
