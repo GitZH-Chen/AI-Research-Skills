@@ -54,7 +54,7 @@ These are suggested defaults, not requirements. You can define your own project 
 - `xx.bib`: bibliography source (`\bibliography{xx.bib}`)
 - `Aux/Guidelines.pdf`: optional formatting guideline
 
-Typical project tree example:
+Typical project tree example, which comes from https://arxiv.org/abs/2602.18858:
 
 ```text
 your-paper-project/
