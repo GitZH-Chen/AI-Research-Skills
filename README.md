@@ -54,6 +54,37 @@ These are suggested defaults, not requirements. You can define your own project 
 - `xx.bib`: bibliography source (`\bibliography{xx.bib}`)
 - `Aux/Guidelines.pdf`: optional formatting guideline
 
+Typical project tree example:
+
+```text
+your-paper-project/
+├── AGENTS.md
+├── main.tex
+├── preamble.tex
+├── abbreviation.tex
+├── ref.bib
+├── cvpr.sty
+├── Figs/
+│   ├── teaser.pdf
+│   ├── method_overview.pdf
+│   └── results.pdf
+├── sec/
+│   ├── 0_abstract.tex
+│   ├── 1_introduction.tex
+│   ├── 2_preliminaries.tex
+│   ├── 3_method.tex
+│   ├── 4_experiments.tex
+│   ├── 5_conclusion.tex
+│   └── X_suppl.tex
+├── Aux/
+│   ├── Guidelines.pdf
+│   ├── Rebuttal/
+│   │   ├── CVPR26-Reviews.md
+│   │   └── CVPR26-R1.md
+```
+
+This is only a representative layout, and the skill should follow your project-specific structure when you define one in `AGENTS.md` or `# Custom prompts`.
+
 ## `openreview-rebuttal`
 
 Writing assistant for OpenReview rebuttals targeting AI top-tier conferences and journals.
