@@ -27,7 +27,7 @@ Writing assistant for AI top-tier conference/journal papers in LaTeX. This skill
 
 - Drafting and polishing for manuscript sections
 - Rebuttal drafting and refinement
-- Predefined command `init latex`: initialize VS Code LaTeX Workshop files for the manuscript root, including `.vscode/settings.json` and `.latexmkrc`; default to `main.tex` when present, otherwise ask which `.tex` file is the main entry
+- Predefined command `init latex`: create `Aux/`, `Figs/`, and `Sec/` if missing, then write fixed `.latexmkrc`, `.vscode/settings.json`, and `.gitignore` files exactly as specified by the skill; default to `main.tex` when present, otherwise ask which `.tex` file is the main entry before initialization
 - Predefined command `grammar check`: grammar-only correction (no polishing or rewriting), plus LaTeX/template/equation rule checks, including optional checks against `Aux/Guidelines.pdf`
 - Predefined command `bib check`: clean and standardize `.bib` entries for supported top-tier venues, keep core fields, normalize venue abbreviations, and report potential duplicate references
 
@@ -50,9 +50,14 @@ These are suggested defaults, not requirements. You can define your own project 
 
 - `./Aux`: manuscript support materials
 - `./Aux/Rebuttal`: rebuttal materials
+- `./Figs`: figure assets
+- `./Sec`: section `.tex` files
 - `./Aux/Rebuttal/{venue}-Reviews.md` or `./Aux/Rebuttal/{venue}-{reviewer}.md`: review file(s), either a single file for all reviewers or one file per reviewer (for example `ICLR26-Reviews.md` or `ICLR26-R1.md`)
 - `preamble.tex`: predefined LaTeX macros
 - `xx.bib`: bibliography source (`\bibliography{xx.bib}`)
+- `.vscode/settings.json`: fixed VS Code LaTeX Workshop settings
+- `.latexmkrc`: fixed local latexmk configuration
+- `.gitignore`: fixed local ignore rules aligned with the LaTeX workflow
 - `Aux/Guidelines.pdf`: optional formatting guideline
 
 Typical project tree example, which comes from https://arxiv.org/abs/2602.18858:
@@ -69,7 +74,7 @@ your-paper-project/
 │   ├── teaser.pdf
 │   ├── method_overview.pdf
 │   └── results.pdf
-├── sec/
+├── Sec/
 │   ├── 0_abstract.tex
 │   ├── 1_introduction.tex
 │   ├── 2_preliminaries.tex

@@ -17,9 +17,14 @@ Treat the file layout below as a suggested default, not a requirement. If the us
 
 - `./Aux`: manuscript support materials
 - `./Aux/Rebuttal`: rebuttal materials
+- `./Figs`: figure assets
+- `./Sec`: section `.tex` files
 - `./Aux/Rebuttal/{venue}-Reviews.md` or `./Aux/Rebuttal/{venue}-{reviewer}.md`: review file(s), either a single file for all reviewers or one file per reviewer (for example `ICLR26-Reviews.md` or `ICLR26-R1.md`).
 - `preamble.tex`: predefined LaTeX macros
 - `xx.bib`: bibliography source (`\bibliography{xx.bib}`)
+- `.vscode/settings.json`: fixed VS Code LaTeX Workshop settings
+- `.latexmkrc`: fixed local latexmk configuration
+- `.gitignore`: fixed ignore rules aligned with the LaTeX workflow
 - `Aux/Guidelines.pdf`: formatting guideline.
 
 All checklist items are optional. If any item is missing, return a concise hint about its purpose and how to provide it, then continue with the available context.
@@ -103,20 +108,167 @@ If a citation, definition, or formula is missing, You will explicitly note it so
 
 When I say `init latex`, initialize the LaTeX workspace for VS Code with LaTeX Workshop by applying the project setup below before any writing or polishing work.
 
-- Work from the manuscript root that contains the main `.tex` entry file and create or update `.vscode/settings.json` and `.latexmkrc`.
-- Detect the default main file first. If `main.tex` exists, use it as the default root file. If `main.tex` does not exist, ask me which `.tex` file should be treated as the main file before writing any configuration.
-- Preserve existing user settings whenever possible. Merge into existing `.vscode/settings.json` instead of overwriting unrelated keys.
-- Configure `.latexmkrc` to use `out/` for both `$out_dir` and `$aux_dir`.
-- Configure `.latexmkrc` to enable `-shell-escape` for `pdflatex`, `xelatex`, and `lualatex`.
-- Configure `.vscode/settings.json` so LaTeX Workshop uses `%DIR%/out` as the output directory, builds on save, cleans on build, opens the PDF in a tab, and keeps `latex-workshop.latex.rootFile.doNotPrompt` as `false`.
-- Set `latex-workshop.latex.search.rootFiles.include` from the detected root files. Always include the chosen main file. If `rebuttal.tex` exists, include it as an additional root file and add a dedicated recipe for it.
-- Add explicit `latexmk` tools and recipes for each detected root file, with `-pdf`, `-interaction=nonstopmode`, `-synctex=1`, `-file-line-error`, and `-outdir=out`.
-- Set `latex-workshop.latex.recipe.default` to the recipe for the chosen main file.
-- Add `files.exclude` for `**/out/**`.
-- If the project already uses LTEX, preserve its dictionary and false-positive files. If LTEX is not configured yet, initialize the standard LaTeX-friendly settings from the HBNN template: enable LTEX for `latex` and `markdown`, use `en-US`, enable the LaTeX parser, ignore common citation and reference commands, and ignore math-heavy environments such as `equation`, `align`, `gather`, and `multline`.
-- Keep line wrapping enabled in the editor and diff editor, and keep side-by-side diff rendering disabled.
+- Work from the manuscript root that contains the main `.tex` entry file.
+- Detect the default main file first. If `main.tex` exists, use it as the default root file. If `main.tex` does not exist, ask me which `.tex` file should be treated as the main file before initialization, because the fixed settings below assume `main.tex`.
+- Ensure the folders `Aux/`, `Figs/`, and `Sec/` exist. Create any missing folder before writing the configuration files.
+- Create `.vscode/` if it does not already exist.
+- Write `.latexmkrc` with the exact content below, without adapting or merging:
 
-After initialization, briefly report which files were created or updated and which `.tex` file was chosen as the default root.
+  ```perl
+  $out_dir = 'out';
+  $aux_dir  = 'out';
+
+  # Optional: keep only final PDF in out/ and minimal aux in repo root
+  # You can extend the list of extensions latexmk cleans if needed.
+
+  # Enable shell-escape so glossaries-extra's automake can run
+  # makeglossaries/makeglossaries-lite from within LaTeX.
+  $pdflatex = 'pdflatex -shell-escape %O %S';
+  $xelatex  = 'xelatex  -shell-escape %O %S';
+  $lualatex = 'lualatex -shell-escape %O %S';
+  ```
+
+- Write `.vscode/settings.json` with the exact content below, without adapting or merging:
+
+  ```json
+  {
+    "latex-workshop.latex.outDir": "%DIR%/out",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.rootFile.doNotPrompt": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    "latex-workshop.latex.search.rootFiles.include": [
+      "main.tex",
+      "rebuttal.tex"
+    ],
+    // "latex-workshop.latex.search.rootFiles.exclude": [
+    //   "**/rebuttal.tex"
+    // ],
+    "latex-workshop.latex.tools": [
+      {
+        "name": "latexmk-main",
+        "command": "latexmk",
+        "args": [
+          "-pdf",
+          "-interaction=nonstopmode",
+          "-synctex=1",
+          "-file-line-error",
+          "-outdir=out",
+          "main.tex"
+        ]
+      },
+      {
+        "name": "latexmk-rebuttal",
+        "command": "latexmk",
+        "args": [
+          "-pdf",
+          "-interaction=nonstopmode",
+          "-synctex=1",
+          "-file-line-error",
+          "-outdir=out",
+          "rebuttal.tex"
+        ]
+      },
+    ],
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "latexmk (main.tex)",
+        "tools": [
+          "latexmk-main"
+        ]
+      },
+      {
+        "name": "latexmk (rebuttal.tex)",
+        "tools": [
+          "latexmk-rebuttal"
+        ]
+      },
+    ],
+    "latex-workshop.latex.recipe.default": "latexmk (main.tex)",
+    "files.exclude": {
+      "**/out/**": true
+    },
+    "ltex.language": "en-US",
+    "ltex.enabled": ["latex", "markdown"],
+    "ltex.latex.useLaTeXParser": true,
+    "ltex.latex.commands": {
+      "\\cite": "ignore",
+      "\\citet": "ignore",
+      "\\citep": "ignore",
+      "\\cref": "ignore",
+      "\\Cref": "ignore",
+      "\\ref": "ignore",
+      "\\eqref": "ignore",
+      "\\url": "ignore",
+      "\\inner": "ignore",
+      "\\norm": "ignore",
+      "\\Linner": "ignore",
+      "\\Lnorm": "ignore",
+      "\\pball": "ignore",
+      "\\lorentz": "ignore"
+    },
+    "ltex.latex.environments": {
+      "equation": "ignore",
+      "equation*": "ignore",
+      "align": "ignore",
+      "align*": "ignore",
+      "gather": "ignore",
+      "gather*": "ignore",
+      "multline": "ignore",
+      "multline*": "ignore"
+    },
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 80,
+    "editor.wrappingStrategy": "advanced",
+    "diffEditor.wordWrap": "on",
+    "diffEditor.renderSideBySide": false
+  }
+  ```
+
+- Write `.gitignore` with the exact content below, without adapting or merging:
+
+  ```gitignore
+  # LaTeX intermediates and outputs
+  out/
+  *.aux
+  *.bbl
+  *.blg
+  *.bcf
+  *.fdb_latexmk
+  *.fls
+  *.log
+  *.out
+  *.synctex.gz
+  *.toc
+  *.run.xml
+  *.nav
+  *.snm
+  *.vrb
+
+  # macOS
+  .DS_Store
+
+  # VSCode workspace settings
+  .vscode/
+
+  # Shell scripts (omit from git)
+  *.sh
+
+  # Local-only config (omit from git)
+  .latexmkrc
+  .gitignore
+  AGENTS.md
+  AGENTS-Rebuttal.md
+  /Aux/
+  # \n# Reference PDFs not needed on Overleaf
+  # Aux/*.pdf
+  ```
+
+- Do not preserve or merge unrelated existing entries in these three files. The goal of `init latex` is to make them match the fixed template exactly.
+
+After initialization, briefly report which files were written and which folders were created.
 
 ### 3.3 Grammar check
 When asked to perform a `grammar check`, only identify and correct grammatical errors without rephrasing or polishing the sentences. Do not alter style, structure, or word choice. Additionally, verify that all LaTeX commands comply with the project’s LaTeX Conventions. 
