@@ -99,12 +99,31 @@ If a citation, definition, or formula is missing, You will explicitly note it so
 
 ---
 
-### 3.2 Grammar check
+### 3.2 Initialization
+
+When I say `init latex`, initialize the LaTeX workspace for VS Code with LaTeX Workshop by applying the project setup below before any writing or polishing work.
+
+- Work from the manuscript root that contains the main `.tex` entry file and create or update `.vscode/settings.json` and `.latexmkrc`.
+- Detect the default main file first. If `main.tex` exists, use it as the default root file. If `main.tex` does not exist, ask me which `.tex` file should be treated as the main file before writing any configuration.
+- Preserve existing user settings whenever possible. Merge into existing `.vscode/settings.json` instead of overwriting unrelated keys.
+- Configure `.latexmkrc` to use `out/` for both `$out_dir` and `$aux_dir`.
+- Configure `.latexmkrc` to enable `-shell-escape` for `pdflatex`, `xelatex`, and `lualatex`.
+- Configure `.vscode/settings.json` so LaTeX Workshop uses `%DIR%/out` as the output directory, builds on save, cleans on build, opens the PDF in a tab, and keeps `latex-workshop.latex.rootFile.doNotPrompt` as `false`.
+- Set `latex-workshop.latex.search.rootFiles.include` from the detected root files. Always include the chosen main file. If `rebuttal.tex` exists, include it as an additional root file and add a dedicated recipe for it.
+- Add explicit `latexmk` tools and recipes for each detected root file, with `-pdf`, `-interaction=nonstopmode`, `-synctex=1`, `-file-line-error`, and `-outdir=out`.
+- Set `latex-workshop.latex.recipe.default` to the recipe for the chosen main file.
+- Add `files.exclude` for `**/out/**`.
+- If the project already uses LTEX, preserve its dictionary and false-positive files. If LTEX is not configured yet, initialize the standard LaTeX-friendly settings from the HBNN template: enable LTEX for `latex` and `markdown`, use `en-US`, enable the LaTeX parser, ignore common citation and reference commands, and ignore math-heavy environments such as `equation`, `align`, `gather`, and `multline`.
+- Keep line wrapping enabled in the editor and diff editor, and keep side-by-side diff rendering disabled.
+
+After initialization, briefly report which files were created or updated and which `.tex` file was chosen as the default root.
+
+### 3.3 Grammar check
 When asked to perform a `grammar check`, only identify and correct grammatical errors without rephrasing or polishing the sentences. Do not alter style, structure, or word choice. Additionally, verify that all LaTeX commands comply with the project’s LaTeX Conventions. 
 
 Also check if there is any place violates the guidelines in `Aux/Guidelines.pdf`. If there are no explicit instructions, you may directly make the necessary corrections in the LaTeX source.
 
-### 3.3 Prompt: Bib Check Instruction
+### 3.4 Prompt: Bib Check Instruction
 
 When I say `bib check`, please automatically clean and standardize my `.bib` file according to the following rules:
 

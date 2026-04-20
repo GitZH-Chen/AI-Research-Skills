@@ -27,6 +27,7 @@ Writing assistant for AI top-tier conference/journal papers in LaTeX. This skill
 
 - Drafting and polishing for manuscript sections
 - Rebuttal drafting and refinement
+- Predefined command `init latex`: initialize VS Code LaTeX Workshop files for the manuscript root, including `.vscode/settings.json` and `.latexmkrc`; default to `main.tex` when present, otherwise ask which `.tex` file is the main entry
 - Predefined command `grammar check`: grammar-only correction (no polishing or rewriting), plus LaTeX/template/equation rule checks, including optional checks against `Aux/Guidelines.pdf`
 - Predefined command `bib check`: clean and standardize `.bib` entries for supported top-tier venues, keep core fields, normalize venue abbreviations, and report potential duplicate references
 
