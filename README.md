@@ -21,6 +21,41 @@ Typical usage:
 
 Without `--path`, the script discovers all local skill directories and processes each one. It installs when missing, and backs up then updates when already installed.
 
+## `conference-friend-finder`
+
+Conference companion skill for tracking people you want to meet and finding their official conference poster sessions.
+
+- Search tracked friends across the active conference's main-paper poster schedule
+- Prioritize poster entries, and return the oral entry too when the same paper has both
+- Refresh affiliations in the user's tracked friends list
+- Insert new people from names, institutions, or profile URLs
+- Switch the active conference target by updating the user's venue file
+
+### Usage
+
+```md
+Use $conference-friend-finder.
+```
+
+### Default Active Files
+
+- `./Friends.md`
+- `./VENUE.md`
+
+This public skill does not ship with any personal data.
+
+### Starter Templates
+
+- `conference-friend-finder/assets/Friends.template.md`
+- `conference-friend-finder/assets/VENUE.template.md`
+
+### Typical Commands
+
+- `search friends`
+- `update friends`
+- `insert friends: Jane Doe`
+- `update conf for ICLR 2027, conference website https://..., OpenReview venue page https://...`
+
 ## `ai-paper-writing`
 
 Writing assistant for AI top-tier conference/journal papers in LaTeX. This skill is designed to work with a VSCode + LaTeX Workshop workflow. 
