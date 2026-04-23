@@ -1,11 +1,11 @@
 ---
 name: conference-friend-finder
-description: Track conference friends, keep their affiliations current, and find their main-conference poster sessions from official venue sources. Use when attending a conference and trying to locate friends' posters, updating a tracked people list, inserting new people, or switching the active conference target.
+description: Track conference friends, keep their affiliations current, and find their main-conference schedule entries from official venue sources. Use when attending a conference and trying to locate tracked friends' poster or oral sessions, updating a tracked people list, inserting new people, or switching the active conference target.
 ---
 
 # Conference Friend Finder
 
-Use this skill to maintain a tracked people list and find their poster sessions at the active conference.
+Use this skill to maintain a tracked people list and find their official main-conference schedule entries at the active conference.
 
 ## Default Project Files
 
@@ -25,7 +25,6 @@ Always read both active project files before conference search tasks.
 
 ## General Rules
 
-- Treat poster discovery as the primary goal of this skill.
 - Search main-conference papers by default.
 - Exclude workshop papers unless the user explicitly requests them.
 - Prefer sources in this order:
@@ -61,7 +60,7 @@ The active `VENUE.md` should stay concise and human-editable and include:
 
 ### `search friends`
 
-When the user says `search friends` or clearly asks to find tracked friends' posters at the active conference:
+When the user says `search friends` or clearly asks to find tracked friends' main-conference sessions at the active conference:
 
 1. Read `Friends.md` and `VENUE.md`.
 2. Extract the full author names from `Friends.md`.
@@ -70,23 +69,43 @@ When the user says `search friends` or clearly asks to find tracked friends' pos
    - paper title
    - full author list
    - matched friend name(s)
-   - all official poster schedule entries
-   - the oral entry too if the same paper officially has both oral and poster slots
+   - all official main-conference schedule entries for that paper
 5. For each returned schedule entry, collect:
    - date
+   - presentation type if available
    - time
    - location
-   - presentation type if available
+   - for poster entries, keep both the room and poster-board position when the official site provides both
+   - time in the conference venue's local timezone, even if the page is currently rendered in a different viewer timezone
 6. Produce a real Excel workbook with:
    - one sheet per day
    - one row per returned schedule entry
+   - save the final workbook directly under `outputs/`
+   - name the final workbook as `Venue-Year.xlsx`, for example `ICLR-2026.xlsx`
    - columns in this order:
      1. `Paper Title + Authors`
-     2. `Time`
-     3. `Location`
+     2. `Type`
+     3. `Time`
+     4. `Location`
 7. In `Paper Title + Authors`, place the title and author list in the same cell, separate them with a line break, and bold the matched friend names.
 8. Sort each sheet by time ascending, then location ascending.
 9. If sources disagree, prefer the official conference site. If the conflict remains unresolved, ask the user.
+
+Location formatting rules:
+
+- keep the `Location` column as the physical location only; do not prepend presentation type there
+- for poster entries with both fields available, format as `Pavilion 3, P3-#122`
+- for non-poster entries, use the official room or location text shown by the conference site
+
+Time formatting rules:
+
+- keep the `Time` column in the conference local timezone
+- if an official page is rendered in the viewer's timezone, convert it back to the venue local timezone before writing the workbook
+
+Type formatting rules:
+
+- keep the `Type` column explicit for each schedule entry, using official labels such as `Oral` or `Poster`
+- do not merge the presentation type into the `Location` column
 
 Name matching rules:
 
