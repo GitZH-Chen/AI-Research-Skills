@@ -23,12 +23,14 @@ Without `--path`, the script discovers all local skill directories and processes
 
 ## `conference-friend-finder`
 
-Conference companion skill for tracking people you want to meet and finding their official conference poster sessions.
+Conference companion skill for tracking people and research topics, then exporting official main-conference schedule entries into Excel.
 
-- Search tracked friends across the active conference's main-paper poster schedule
-- Prioritize poster entries, and return the oral entry too when the same paper has both
+- Search tracked friends across the active conference's main papers
+- Search tracked research topics across titles, abstracts, keywords, and official paper pages
+- Include both oral and poster entries when a matched paper has both
 - Refresh affiliations in the user's tracked friends list
 - Insert new people from names, institutions, or profile URLs
+- Update tracked research topics from user-provided terms or Ziheng Chen's homepage
 - Switch the active conference target by updating the user's venue file
 
 ### Usage
@@ -40,21 +42,38 @@ Use $conference-friend-finder.
 ### Default Active Files
 
 - `./Friends.md`
+- `./TOPICS.md`
 - `./VENUE.md`
 
-This public skill does not ship with any personal data.
+This public skill does not ship with any private people or conference data.
 
 ### Starter Templates
 
 - `conference-friend-finder/assets/Friends.template.md`
+- `conference-friend-finder/assets/TOPICS.template.md`
 - `conference-friend-finder/assets/VENUE.template.md`
 
 ### Typical Commands
 
-- `search friends`
+- `search friends`: writes `outputs/Venue-Year-friends.xlsx`
+- `search topics`: writes `outputs/Venue-Year-topics.xlsx`
 - `update friends`
 - `insert friends: Jane Doe`
+- `update topics`
 - `update conf for ICLR 2027, conference website https://..., OpenReview venue page https://...`
+
+For `search friends` and `search topics`, existing same-name files under `outputs/` are overwritten directly.
+
+### Excel Format
+
+Both search commands produce one sheet per day and one row per official schedule entry, with columns:
+
+1. `Paper Title + Authors`
+2. `Type`
+3. `Time`
+4. `Location`
+
+The `Time` column uses the conference venue's local timezone. The `Location` column stores the physical location only; poster entries with room and board are formatted like `Pavilion 3, P3-#122`.
 
 ## `ai-paper-writing`
 

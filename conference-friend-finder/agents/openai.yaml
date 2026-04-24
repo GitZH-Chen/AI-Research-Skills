@@ -1,11 +1,13 @@
 interface:
   display_name: "Conference Friend Finder"
-  short_description: "Find friends' conference sessions"
+  short_description: "Find friends and topic papers at conferences"
   # This public skill does not bundle private user data.
   # Default active files live in the user's workspace:
   # - ./Friends.md
+  # - ./TOPICS.md
   # - ./VENUE.md
   # Optional starter templates:
   # - assets/Friends.template.md
+  # - assets/TOPICS.template.md
   # - assets/VENUE.template.md
-  default_prompt: "Use $conference-friend-finder to track conference friends, refresh their affiliations, and find their official main-conference poster and oral sessions from official venue sources."
+  default_prompt: "Use $conference-friend-finder to track conference friends and research topics, refresh affiliations or topic lists, and export official main-conference poster and oral sessions from official venue sources."
