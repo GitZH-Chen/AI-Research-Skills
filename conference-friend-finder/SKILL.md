@@ -229,17 +229,18 @@ When the user says `update topics` or clearly asks to refresh tracked research t
 
 1. Read all topics from `TOPICS.md`.
 2. Parse any topic names, keywords, paper titles, homepage URLs, profile URLs, or notes provided by the user in the same message.
-3. If the user provides no additional topic information, use Ziheng Chen's homepage (`https://gitzh-chen.github.io`) as the default source, especially the research overview, selected publications, and publication titles.
-4. Infer topic additions from the user's current research themes and publications, using this priority order:
-   - Ziheng Chen's official homepage
+3. If the user provides no additional topic information and `TOPICS.md` already contains topics, only normalize, deduplicate, and clarify the existing entries.
+4. If `TOPICS.md` is missing or empty and the user provides no topic source, ask the user for topic names, keywords, paper titles, homepage URLs, profile URLs, or notes before adding topics.
+5. Infer topic additions from user-provided research themes, publications, and source URLs using this priority order:
+   - user-provided official homepage or profile
    - linked official paper pages, OpenReview pages, or arXiv pages
    - linked project/code pages only when they clarify terminology
-5. Add missing topic bullets and merge useful new search variants into existing bullets.
-6. Keep `TOPICS.md` in the categorized bullet-list format.
-7. Deduplicate topics by normalized topic label.
-8. Set the top-level `Last updated:` date to the current date when topics are newly inserted or materially changed.
-9. Preserve existing topics unless they are clear duplicates.
-10. If a topic's scope is too broad or ambiguous, ask the user before finalizing that topic bullet.
+6. Add missing topic bullets and merge useful new search variants into existing bullets.
+7. Keep `TOPICS.md` in the categorized bullet-list format.
+8. Deduplicate topics by normalized topic label.
+9. Set the top-level `Last updated:` date to the current date when topics are newly inserted or materially changed.
+10. Preserve existing topics unless they are clear duplicates.
+11. If a topic's scope is too broad or ambiguous, ask the user before finalizing that topic bullet.
 
 Output expectation:
 
