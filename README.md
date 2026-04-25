@@ -30,7 +30,7 @@ Conference companion skill for tracking people and research topics, then exporti
 - Include both oral and poster entries when a matched paper has both
 - Refresh affiliations in the user's tracked friends list
 - Insert new people from names, institutions, or profile URLs
-- Update tracked research topics from user-provided terms or Ziheng Chen's homepage
+- Update tracked research topics from user-provided terms, papers, profile URLs, or notes
 - Switch the active conference target by updating the user's venue file
 
 ### Usage
