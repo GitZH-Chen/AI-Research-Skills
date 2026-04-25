@@ -175,6 +175,10 @@ Type formatting:
 - Keep the `Type` column explicit for each schedule entry, using official labels such as `Oral` or `Poster`.
 - Do not merge the presentation type into the `Location` column.
 
+Excel layout rules:
+- in the `Paper Title + Authors` column, keep the paper title itself on a single line; use a line break only between the title and the author list
+- set practical Excel column widths, especially for `Paper Title + Authors`, so paper titles do not wrap unnecessarily and rows stay compact
+
 ### `update friends`
 
 When the user says `update friends` or clearly asks to refresh the tracked affiliations:
