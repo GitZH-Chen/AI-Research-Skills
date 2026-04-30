@@ -122,4 +122,5 @@ Create an Excel reimbursement summary in `output/`, following the structure of a
 5. Use one row per actual expense. Do not double-count ticket, invoice, confirmation, and payment proof files that support the same cost.
 6. Sort the main expense sheet before assigning `Nr.`: first by `Category`, then by `Date` ascending. Use the category order `交通`/transportation, `住宿`/accommodation, `meal`/food, `其他`/other, while preserving the project's preferred category labels.
 7. Add a compact summary sheet with totals by category and, when relevant, a separate list of open questions or items that may need eligibility confirmation.
-8. Do not modify templates in `0_Aux/` while creating the summary.
+8. Format workbook text with 14 pt font size.
+9. Do not modify templates in `0_Aux/` while creating the summary.
