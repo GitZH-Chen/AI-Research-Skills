@@ -21,103 +21,6 @@ Typical usage:
 
 Without `--path`, the script discovers all local skill directories and processes each one. It installs when missing, and backs up then updates when already installed.
 
-## `conference-friend-finder`
-
-Conference companion skill for tracking people and research topics, then exporting official main-conference schedule entries into Excel.
-
-- Search tracked friends across the active conference's main papers
-- Search tracked research topics across titles, abstracts, keywords, and official paper pages
-- Include both oral and poster entries when a matched paper has both
-- Refresh affiliations in the user's tracked friends list
-- Insert new people from names, institutions, or profile URLs
-- Update tracked research topics from user-provided terms, papers, profile URLs, or notes
-- Switch the active conference target by updating the user's venue file
-
-### Usage
-
-```md
-Use $conference-friend-finder.
-```
-
-### Default Active Files
-
-- `./Friends.md`
-- `./TOPICS.md`
-- `./VENUE.md`
-
-This public skill does not ship with any private people or conference data.
-
-### Starter Templates
-
-- `conference-friend-finder/assets/Friends.template.md`
-- `conference-friend-finder/assets/TOPICS.template.md`
-- `conference-friend-finder/assets/VENUE.template.md`
-
-### Typical Commands
-
-- `search friends`: writes `outputs/Venue-Year-friends.xlsx`
-- `search topics`: writes `outputs/Venue-Year-topics.xlsx`
-- `update friends`
-- `insert friends: Jane Doe`
-- `update topics`
-- `update conf for ICLR 2027, conference website https://..., OpenReview venue page https://...`
-
-For `search friends` and `search topics`, existing same-name files under `outputs/` are overwritten directly.
-
-### Excel Format
-
-Both search commands produce one sheet per day and one row per official schedule entry, with columns:
-
-1. `Paper Title + Authors`
-2. `Type`
-3. `Time`
-4. `Location`
-
-The `Time` column uses the conference venue's local timezone. The `Location` column stores the physical location only; poster entries with room and board are formatted like `Pavilion 3, P3-#122`.
-
-## `reimbursement`
-
-Organizer for reimbursement materials across research, travel, grants, events, purchasing, and other reimbursable project folders.
-
-- Use default folders: `0_Aux/`, `food/`, and `transportation_accomodation/`
-- `org receipts` creates missing default folders and a root `readme.md` with `Use $reimbursement` and `# Customized Requirement`
-- Keep official rules, approval letters, and templates in `0_Aux/`
-- Normalize receipt names as `[class]-[date]-[note].[ext]`
-- Use `YYYY-MM-DD` for one-day receipts and `YYYY-MM-DD_to_YYYY-MM-DD` for multi-day receipts or validity periods
-- Treat obvious variants such as `transport/`, `travel/`, `accommodation/`, `accomodation/`, `meals/`, or `food_receipts/` as category folders when clear
-- Preserve user-created folders outside the default categories and obvious variants unless the user explicitly asks to modify them
-- Create `output/reimbursement-summary.xlsx` for Excel summaries
-- Keep eligibility decisions tied to the official rules and relevant office or funder feedback
-
-### Usage
-
-```md
-Use $reimbursement.
-```
-
-### Example File Structure
-
-```text
-reimbursement-project/
-├── 0_Aux/
-│   ├── reimbursement-rules.pdf
-│   └── reimbursement-template.xlsx # official template for reimbursement summary
-├── food/
-│   └── food-2026-01-15-canteen-receipt.pdf
-├── transportation_accomodation/
-│   ├── transportation-2026-01-10-train-ticket.pdf
-│   └── accommodation-2026-01-10_to_2026-01-24-hotel-invoice.pdf
-├── registration/
-│   └── registration-2026-01-08-conference-fee.pdf
-└── output/
-    └── reimbursement-summary.xlsx
-```
-
-### Typical Commands
-
-- `org receipts`: initialize missing default folders and `readme.md`, then organize root-level files, default category folders, and obvious category variants while preserving other user-created folders.
-- `sum excel`: create `output/reimbursement-summary.xlsx` with one row per actual expense, supporting files, comments, and category totals.
-
 ## `ai-paper-writing`
 
 Writing assistant for AI top-tier conference/journal papers in LaTeX. This skill is designed to work with a VSCode + LaTeX Workshop workflow. 
@@ -129,8 +32,6 @@ Writing assistant for AI top-tier conference/journal papers in LaTeX. This skill
 - Predefined command `bib check`: clean and standardize `.bib` entries for supported top-tier venues, keep core fields, normalize venue abbreviations, and report potential duplicate references
 
 ### Usage
-
-You can structure your `AGENTS.md` as follows to include this skill in your workflow:
 
 ```md
 Use $ai-paper-writing.
@@ -214,3 +115,49 @@ These are suggested defaults, not requirements. You can define your own project 
 - `./Aux`: manuscript support materials and references
 - `./Aux/Rebuttal`: rebuttal materials
 - `./Aux/Rebuttal/{venue}-Reviews.md` or `./Aux/Rebuttal/{venue}-{reviewer}.md`: review file(s), either a single file for all reviewers or one file per reviewer (for example `ICLR26-Reviews.md` or `ICLR26-R1.md`)
+
+## `reimbursement`
+
+Organizer for reimbursement materials across research, travel, grants, events, purchasing, and other reimbursable project folders.
+
+- Use default folders: `0_Aux/`, `food/`, and `transportation_accomodation/`
+- `org receipts` creates missing default folders and a root `readme.md` with `Use $reimbursement` and `# Customized Requirement`
+- Keep official rules, approval letters, and templates in `0_Aux/`
+- Normalize receipt names as `[class]-[date]-[note].[ext]`
+- Use `YYYY-MM-DD` for one-day receipts and `YYYY-MM-DD_to_YYYY-MM-DD` for multi-day receipts or validity periods
+- Treat obvious variants such as `transport/`, `travel/`, `accommodation/`, `accomodation/`, `meals/`, or `food_receipts/` as category folders when clear
+- Preserve user-created folders outside the default categories and obvious variants unless the user explicitly asks to modify them
+- Create `output/reimbursement-summary.xlsx` for Excel summaries
+- Keep eligibility decisions tied to the official rules and relevant office or funder feedback
+
+### Usage
+
+```md
+Use $reimbursement.
+
+# Custom prompts
+# add your own prompts below
+```
+
+### Example File Structure
+
+```text
+reimbursement-project/
+├── 0_Aux/
+│   ├── reimbursement-rules.pdf
+│   └── reimbursement-template.xlsx # official template for reimbursement summary
+├── food/
+│   └── food-2026-01-15-canteen-receipt.pdf
+├── transportation_accomodation/
+│   ├── transportation-2026-01-10-train-ticket.pdf
+│   └── accommodation-2026-01-10_to_2026-01-24-hotel-invoice.pdf
+├── registration/
+│   └── registration-2026-01-08-conference-fee.pdf
+└── output/
+    └── reimbursement-summary.xlsx
+```
+
+### Typical Commands
+
+- `org receipts`: initialize missing default folders and `readme.md`, then organize root-level files, default category folders, and obvious category variants while preserving other user-created folders.
+- `sum excel`: create `output/reimbursement-summary.xlsx` with one row per actual expense, supporting files, comments, and category totals.
