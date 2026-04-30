@@ -1,6 +1,6 @@
 ---
 name: reimbursement
-description: Organize reimbursement folders, receipts, supporting PDFs, notes, and Excel summaries for research, travel, grants, events, purchasing, and other reimbursable projects. Use when preparing or auditing reimbursement materials, especially projects with 0_Aux, food, and transportation_accomodation folders, and when the user asks to run org receipts or sum excel.
+description: Organize reimbursement folders, receipts, supporting PDFs, and Excel summaries for research, travel, grants, events, purchasing, and other reimbursable projects. Use when preparing or auditing reimbursement materials, especially projects with 0_Aux, food, and transportation_accomodation folders, and when the user asks to run org receipts or sum excel.
 ---
 
 # Reimbursement Organizer
@@ -34,13 +34,13 @@ If filling a reimbursement form, copy the template from `0_Aux/` before editing.
 
 ## Workflow
 
-1. Read local instructions: root `AGENTS.md`, funding-specific `AGENTS_*.md`, and any user notes.
+1. Read local instructions: root `AGENTS.md`, funding-specific `AGENTS_*.md`, and any user-provided reimbursement guidance.
 2. Inspect the folder tree with `rg --files` or `find`; create missing default folders when running `org receipts`.
 3. Read the official rules and forms in `0_Aux/` enough to identify eligible categories, deadlines, required proof, limits, and exclusions.
 4. Build an inventory of receipts: file, category, date or period, amount and currency, vendor, route or stay period, proof of payment, and possible excluded line items.
 5. Create reimbursement-ready copies or merged PDFs when useful, while preserving originals unless the user asks for in-place renaming.
-6. Write or update `notes.md` with one section per relevant receipt folder. Prefer one bullet per reimbursement-ready PDF, listing date or period, amount, currency, purpose, included source documents, and any eligibility caveats.
-7. For reimbursement forms or Excel summaries, enter each actual expense once. Use comments to point to the supporting PDF. Keep uncertain or excluded costs out of reimbursable totals unless the rules clearly allow them.
+6. For reimbursement forms or Excel summaries, enter each actual expense once. Use comments to point to the supporting PDF and capture date or period, amount, currency, purpose, included source documents, and any eligibility caveats.
+7. Keep uncertain or excluded costs out of reimbursable totals unless the rules clearly allow them. When creating an Excel summary, put unresolved eligibility items in a separate open-questions sheet.
 
 ## Naming Rules
 
@@ -54,7 +54,7 @@ Name receipt files as:
 - For other reimbursement categories, use a clear lowercase class such as `registration`, `supplies`, `equipment`, `services`, or `other`.
 - `date`: use `YYYY-MM-DD` for a one-day receipt, ticket, invoice, or trip.
 - `date`: use `YYYY-MM-DD_to_YYYY-MM-DD` when the receipt covers multiple days, a stay period, a ticket validity period, or a bundle of receipts across a range.
-- Prefer the service, travel, stay, or receipt date over booking or payment date. If only the invoice or payment date is available, use that date and mention the uncertainty in `notes.md`.
+- Prefer the service, travel, stay, or receipt date over booking or payment date. If only the invoice or payment date is available, use that date and mention the uncertainty in the Excel `Comments` column when creating a summary.
 - `note`: optional, lowercase English words joined with hyphens. Keep it short and descriptive.
 
 Examples:

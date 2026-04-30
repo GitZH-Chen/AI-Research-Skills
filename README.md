@@ -94,10 +94,28 @@ Organizer for reimbursement materials across research, travel, grants, events, p
 Use $reimbursement.
 ```
 
+### Example File Structure
+
+```text
+reimbursement-project/
+├── 0_Aux/
+│   ├── reimbursement-rules.pdf
+│   └── reimbursement-template.xlsx
+├── food/
+│   └── food-2026-01-15-canteen-receipt.pdf
+├── transportation_accomodation/
+│   ├── transportation-2026-01-10-train-ticket.pdf
+│   └── accommodation-2026-01-10_to_2026-01-24-hotel-invoice.pdf
+├── registration/
+│   └── registration-2026-01-08-conference-fee.pdf
+└── output/
+    └── reimbursement-summary.xlsx
+```
+
 ### Typical Commands
 
-- `org receipts`
-- `sum excel`
+- `org receipts`: organize receipt files into reimbursement categories and normalize names as `[class]-[date]-[note].[ext]`.
+- `sum excel`: create `output/reimbursement-summary.xlsx` with one row per actual expense, supporting files, comments, and category totals.
 
 ## `ai-paper-writing`
 
