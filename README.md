@@ -80,12 +80,13 @@ The `Time` column uses the conference venue's local timezone. The `Location` col
 Organizer for reimbursement materials across research, travel, grants, events, purchasing, and other reimbursable project folders.
 
 - Use default folders: `0_Aux/`, `food/`, and `transportation_accomodation/`
+- `org receipts` creates missing default folders and a root `readme.md` with `Use $reimbursement` and `# Customized Requirement`
 - Keep official rules, approval letters, and templates in `0_Aux/`
 - Normalize receipt names as `[class]-[date]-[note].[ext]`
 - Use `YYYY-MM-DD` for one-day receipts and `YYYY-MM-DD_to_YYYY-MM-DD` for multi-day receipts or validity periods
-- Preserve or add other category folders such as `registration/`, `supplies/`, `equipment/`, `services/`, or `other/` when needed
+- Treat obvious variants such as `transport/`, `travel/`, `accommodation/`, `accomodation/`, `meals/`, or `food_receipts/` as category folders when clear
+- Preserve user-created folders outside the default categories and obvious variants unless the user explicitly asks to modify them
 - Create `output/reimbursement-summary.xlsx` for Excel summaries
-- Preserve user-created folders and avoid moving them unless explicitly requested
 - Keep eligibility decisions tied to the official rules and relevant office or funder feedback
 
 ### Usage
@@ -114,8 +115,7 @@ reimbursement-project/
 
 ### Typical Commands
 
-- `init reimbersement`: initialize a reimbursement project with `0_Aux/`, `food/`, `transportation_accomodation/`, and a `readme.md` containing `Use $reimbursement` plus `# Customized Requirement`.
-- `org receipts`: organize receipt files into reimbursement categories and normalize names as `[class]-[date]-[note].[ext]`.
+- `org receipts`: initialize missing default folders and `readme.md`, then organize root-level files, default category folders, and obvious category variants while preserving other user-created folders.
 - `sum excel`: create `output/reimbursement-summary.xlsx` with one row per actual expense, supporting files, comments, and category totals.
 
 ## `ai-paper-writing`

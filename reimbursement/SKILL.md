@@ -25,17 +25,20 @@ transportation_accomodation/
 - `food/`: supermarket, grocery, canteen, restaurant, and other meal or beverage receipts. Do not assume these are reimbursable; check the rules or flag them for confirmation.
 - `transportation_accomodation/`: travel, local transport, accommodation invoices, contracts, booking confirmations, and payment proofs.
 
-Other folders are user-created project structure. Preserve them and do not rely on them unless the user explicitly asks you to use or reorganize them.
-Additional category folders such as `registration/`, `supplies/`, `equipment/`, `services/`, or `other/` are allowed when the reimbursement project needs them.
+Other folders may be user-created project structure. Do not move, rename, or reorganize user-created folders outside the default categories or their obvious variants unless the user explicitly asks you to modify those folders.
+Treat obvious variants such as `transport/`, `transportation/`, `travel/`, `accommodation/`, `accomodation/`, `hotel/`, `meals/`, or `food_receipts/` as category folders when the mapping is clear.
+Additional category folders such as `registration/`, `supplies/`, `equipment/`, `services/`, or `other/` are allowed when the reimbursement project needs them, but do not repurpose an existing user-named folder for these categories unless the folder is clearly named for that category or the user explicitly says so.
 
 `output/` is not required initially. Create it only for generated summaries or filled forms.
+
+At the project root, keep a `readme.md` for project-specific instructions. If it is missing during `org receipts`, create it with `Use $reimbursement` and a `# Customized Requirement` section for the user to fill later.
 
 If filling a reimbursement form, copy the template from `0_Aux/` before editing. Never modify the original template in `0_Aux/`.
 
 ## Workflow
 
-1. Read local instructions: root `AGENTS.md`, funding-specific `AGENTS_*.md`, and any user-provided reimbursement guidance.
-2. Inspect the folder tree with `rg --files` or `find`; create missing default folders when running `org receipts`.
+1. Read local instructions: root `AGENTS.md`, project `readme.md` or `README.md`, funding-specific `AGENTS_*.md`, and any user-provided reimbursement guidance.
+2. Inspect the folder tree with `rg --files` or `find`; create missing default folders and `readme.md` when running `org receipts`.
 3. Read the official rules and forms in `0_Aux/` enough to identify eligible categories, deadlines, required proof, limits, and exclusions.
 4. Build an inventory of receipts: file, category, date or period, amount and currency, vendor, route or stay period, proof of payment, and possible excluded line items.
 5. Create reimbursement-ready copies or merged PDFs when useful, while preserving originals unless the user asks for in-place renaming.
@@ -77,13 +80,12 @@ accommodation-2026-01-10_to_2026-01-24-hotel-invoice.pdf
 
 ## Commands
 
-### `init reimbersement`
+### `org receipts`
 
-Initialize a reimbursement project folder.
+Initialize missing structure and organize receipt files in the reimbursement project.
 
 1. Ensure `0_Aux/`, `food/`, and `transportation_accomodation/` exist. Create missing folders.
-2. Create `readme.md` if it is missing.
-3. The default `readme.md` content should be:
+2. Ensure root `readme.md` exists. If missing, create it with:
 
    ```md
    Use $reimbursement
@@ -92,18 +94,14 @@ Initialize a reimbursement project folder.
 
    ```
 
-4. If `readme.md` already exists, preserve the user's content. Only add `Use $reimbursement` or the `# Customized Requirement` section when they are missing.
-
-### `org receipts`
-
-Organize receipt files in the reimbursement project.
-
-1. Ensure `0_Aux/`, `food/`, and `transportation_accomodation/` exist. Create missing folders.
-2. Leave `0_Aux/` for rules, approvals, templates, and official reference files only.
-3. For every receipt under the category folders, rename it according to `[class]-[date]-[note].[ext]`.
-4. If receipts are in the project root or an uncategorized location and no suitable category folder exists, create a suitable category folder and move the receipt there only when the category is clear.
-5. Avoid overwriting files. If a normalized target filename already exists, add a short disambiguating suffix such as `-2`, `-invoice`, or `-payment-proof`.
-6. Preserve user-created folders unless the user explicitly asks to reorganize them.
+   If `readme.md` already exists, preserve the user's content. Only add `Use $reimbursement` or the `# Customized Requirement` section when they are missing.
+3. Use the project requirements from `readme.md`, `AGENTS.md`, official rules, and user instructions to map files into categories. If no custom requirement exists, use the default folders, their obvious variants, and allowed additional category folders.
+4. Inspect the project root, default category folders, and obvious category variants. Move clearly identifiable reimbursement evidence from those locations into the appropriate category folder and create a suitable category folder when the project requirement or root-level file content calls for it.
+5. Leave `0_Aux/` for rules, approvals, templates, and official reference files only. Move clearly identifiable rules, approvals, templates, and reference files there; do not put ordinary receipts in `0_Aux/`.
+6. Do not move, rename, or reorganize unrelated user-created folders. If an arbitrary user-created folder contains possible reimbursement evidence, leave it in place and report it as a candidate for user confirmation.
+7. For every receipt or supporting reimbursement file under category folders, rename it according to `[class]-[date]-[note].[ext]`.
+8. Avoid overwriting files. If a normalized target filename already exists, add a short disambiguating suffix such as `-2`, `-invoice`, or `-payment-proof`.
+9. Preserve ambiguous files. If a file cannot be categorized confidently, leave it in place and report what needs user confirmation.
 
 ### `sum excel`
 

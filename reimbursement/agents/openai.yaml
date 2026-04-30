@@ -5,5 +5,5 @@ interface:
   # - ./0_Aux: rules, approval letters, templates, and official reference files.
   # - ./food: supermarket, grocery, canteen, restaurant, meal, and beverage receipts.
   # - ./transportation_accomodation: travel, local transport, accommodation invoices, confirmations, and payment proofs.
-  # Other folders are user-created project structure and should be preserved.
-  default_prompt: "Use $reimbursement to initialize a reimbursement folder, organize receipts, or summarize expenses."
+  # Preserve user-created folders outside default categories and obvious variants unless explicitly requested.
+  default_prompt: "Use $reimbursement to organize receipts, initialize missing folder/readme structure, or summarize expenses."
