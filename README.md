@@ -100,7 +100,7 @@ Use $reimbursement.
 reimbursement-project/
 ├── 0_Aux/
 │   ├── reimbursement-rules.pdf
-│   └── reimbursement-template.xlsx
+│   └── reimbursement-template.xlsx # official template for reimbursement summary
 ├── food/
 │   └── food-2026-01-15-canteen-receipt.pdf
 ├── transportation_accomodation/
@@ -114,6 +114,7 @@ reimbursement-project/
 
 ### Typical Commands
 
+- `init reimbersement`: initialize a reimbursement project with `0_Aux/`, `food/`, `transportation_accomodation/`, and a `readme.md` containing `Use $reimbursement` plus `# Customized Requirement`.
 - `org receipts`: organize receipt files into reimbursement categories and normalize names as `[class]-[date]-[note].[ext]`.
 - `sum excel`: create `output/reimbursement-summary.xlsx` with one row per actual expense, supporting files, comments, and category totals.
 

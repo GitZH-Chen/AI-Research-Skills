@@ -77,6 +77,23 @@ accommodation-2026-01-10_to_2026-01-24-hotel-invoice.pdf
 
 ## Commands
 
+### `init reimbersement`
+
+Initialize a reimbursement project folder.
+
+1. Ensure `0_Aux/`, `food/`, and `transportation_accomodation/` exist. Create missing folders.
+2. Create `readme.md` if it is missing.
+3. The default `readme.md` content should be:
+
+   ```md
+   Use $reimbursement
+
+   # Customized Requirement
+
+   ```
+
+4. If `readme.md` already exists, preserve the user's content. Only add `Use $reimbursement` or the `# Customized Requirement` section when they are missing.
+
 ### `org receipts`
 
 Organize receipt files in the reimbursement project.
