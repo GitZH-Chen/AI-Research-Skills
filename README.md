@@ -116,6 +116,61 @@ These are suggested defaults, not requirements. You can define your own project 
 - `./Aux/Rebuttal`: rebuttal materials
 - `./Aux/Rebuttal/{venue}-Reviews.md` or `./Aux/Rebuttal/{venue}-{reviewer}.md`: review file(s), either a single file for all reviewers or one file per reviewer (for example `ICLR26-Reviews.md` or `ICLR26-R1.md`)
 
+## `conference-friend-finder`
+
+Conference companion skill for tracking people and research topics, then exporting official main-conference schedule entries into Excel.
+
+- Search tracked friends across the active conference's main papers
+- Search tracked research topics across titles, abstracts, keywords, and official paper pages
+- Include both oral and poster entries when a matched paper has both
+- Refresh affiliations in the user's tracked friends list
+- Insert new people from names, institutions, or profile URLs
+- Update tracked research topics from user-provided terms, papers, profile URLs, or notes
+- Switch the active conference target by updating the user's venue file
+
+### Usage
+
+```md
+Use $conference-friend-finder.
+
+# Custom prompts
+# add your own prompts below
+```
+
+### Default Active Files
+
+- `./Friends.md`
+- `./TOPICS.md`
+- `./VENUE.md`
+
+### Starter Templates
+
+- `conference-friend-finder/assets/Friends.template.md`
+- `conference-friend-finder/assets/TOPICS.template.md`
+- `conference-friend-finder/assets/VENUE.template.md`
+
+### Typical Commands
+
+- `search friends`: writes `outputs/Venue-Year-friends.xlsx`
+- `search topics`: writes `outputs/Venue-Year-topics.xlsx`
+- `update friends`
+- `insert friends: Jane Doe`
+- `update topics`
+- `update conf for ICLR 2027, conference website https://..., OpenReview venue page https://...`
+
+For `search friends` and `search topics`, existing same-name files under `outputs/` are overwritten directly.
+
+### Excel Format
+
+Both search commands produce one sheet per day and one row per official schedule entry, with columns:
+
+1. `Paper Title + Authors`
+2. `Type`
+3. `Time`
+4. `Location`
+
+The `Time` column uses the conference venue's local timezone. The `Location` column stores the physical location only; poster entries with room and board are formatted like `Pavilion 3, P3-#122`.
+
 ## `reimbursement`
 
 Organizer for reimbursement materials across research, travel, grants, events, purchasing, and other reimbursable project folders.
