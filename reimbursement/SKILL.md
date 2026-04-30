@@ -1,6 +1,6 @@
 ---
 name: reimbursement
-description: Organize reimbursement folders, receipts, supporting PDFs, and Excel summaries for research, travel, grants, events, purchasing, and other reimbursable projects. Use when preparing or auditing reimbursement materials, especially projects with 0_Aux, food, and transportation_accomodation folders, and when the user asks to run org receipts or sum excel.
+description: Organize reimbursement folders, receipts, supporting PDFs, Excel summaries, and Markdown summaries for research, travel, grants, events, purchasing, and other reimbursable projects. Use when preparing or auditing reimbursement materials, especially projects with 0_Aux, food, and transportation_accomodation folders, and when the user asks to run org receipts, sum excel, or sum md.
 ---
 
 # Reimbursement Organizer
@@ -42,8 +42,8 @@ If filling a reimbursement form, copy the template from `0_Aux/` before editing.
 3. Read the official rules and forms in `0_Aux/` enough to identify eligible categories, deadlines, required proof, limits, and exclusions.
 4. Build an inventory of receipts: file, category, date or period, amount and currency, vendor, route or stay period, proof of payment, and possible excluded line items.
 5. Create reimbursement-ready copies or merged PDFs when useful, while preserving originals unless the user asks for in-place renaming.
-6. For reimbursement forms or Excel summaries, enter each actual expense once. Use comments to point to the supporting PDF and capture date or period, amount, currency, purpose, included source documents, and any eligibility caveats.
-7. Keep uncertain or excluded costs out of reimbursable totals unless the rules clearly allow them. When creating an Excel summary, put unresolved eligibility items in a separate open-questions sheet.
+6. For reimbursement forms, Excel summaries, or Markdown summaries, enter each actual expense once. Use comments to point to the supporting PDF and capture date or period, amount, currency, purpose, included source documents, and any eligibility caveats.
+7. Keep uncertain or excluded costs out of reimbursable totals unless the rules clearly allow them. When creating a summary, put unresolved eligibility items in a separate open-questions sheet, table, or section.
 
 ## Naming Rules
 
@@ -57,7 +57,7 @@ Name receipt files as:
 - For other reimbursement categories, use a clear lowercase class such as `registration`, `supplies`, `equipment`, `services`, or `other`.
 - `date`: use `YYYY-MM-DD` for a one-day receipt, ticket, invoice, or trip.
 - `date`: use `YYYY-MM-DD_to_YYYY-MM-DD` when the receipt covers multiple days, a stay period, a ticket validity period, or a bundle of receipts across a range.
-- Prefer the service, travel, stay, or receipt date over booking or payment date. If only the invoice or payment date is available, use that date and mention the uncertainty in the Excel `Comments` column when creating a summary.
+- Prefer the service, travel, stay, or receipt date over booking or payment date. If only the invoice or payment date is available, use that date and mention the uncertainty in the summary `Comments` column.
 - `note`: optional, lowercase English words joined with hyphens. Keep it short and descriptive.
 
 Examples:
@@ -110,7 +110,7 @@ Create an Excel reimbursement summary in `output/`, following the structure of a
 1. Create `output/` if missing.
 2. Write a workbook such as `output/reimbursement-summary.xlsx`. If the workbook already exists, overwrite it.
 3. Include a main expense sheet with columns:
-   - `Nr.`
+   - `No.`
    - `Date`
    - `Category`
    - `Name`
@@ -120,7 +120,29 @@ Create an Excel reimbursement summary in `output/`, following the structure of a
    - `Supporting file`
 4. Use `Comments` to clearly state the expense category, time/date or covered period, and location. Add concrete context when useful, such as the purpose, route, stay period, validity period, payment proof, or why multiple source files support one expense.
 5. Use one row per actual expense. Do not double-count ticket, invoice, confirmation, and payment proof files that support the same cost.
-6. Sort the main expense sheet before assigning `Nr.`: first by `Category`, then by `Date` ascending. Use the category order `交通`/transportation, `住宿`/accommodation, `meal`/food, `其他`/other, while preserving the project's preferred category labels.
+6. Sort the main expense sheet before assigning `No.`: first by `Category`, then by `Date` ascending. Use the category order transportation, accommodation, food or meals, and other, while preserving the project's preferred category labels.
 7. Add a compact summary sheet with totals by category and, when relevant, a separate list of open questions or items that may need eligibility confirmation.
 8. Format workbook text with 14 pt font size.
+9. Do not modify templates in `0_Aux/` while creating the summary.
+
+### `sum md`
+
+Create a Markdown reimbursement summary in `output/`, following the same content and sorting requirements as `sum excel`.
+
+1. Create `output/` if missing.
+2. Write `output/reimbursement-summary.md`. If the file already exists, overwrite it.
+3. Include a main Markdown table with the same columns as the `sum excel` main expense sheet:
+   - `No.`
+   - `Date`
+   - `Category`
+   - `Name`
+   - `Amount in currency`
+   - `Currency`
+   - `Comments`
+   - `Supporting file`
+4. Use one row per actual expense. Do not double-count ticket, invoice, confirmation, and payment proof files that support the same cost.
+5. Sort the main table before assigning `No.`: first by `Category`, then by `Date` ascending. Use the category order transportation, accommodation, food or meals, and other, while preserving the project's preferred category labels.
+6. Use `Comments` with the same expectations as `sum excel`: state the expense category, time/date or covered period, location, and useful context such as purpose, route, stay period, validity period, payment proof, or why multiple source files support one expense.
+7. Add a compact totals-by-category Markdown table after the main table.
+8. When relevant, add an `Open Questions` section or table for unresolved eligibility items.
 9. Do not modify templates in `0_Aux/` while creating the summary.
