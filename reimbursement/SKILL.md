@@ -108,7 +108,7 @@ Initialize missing structure and organize receipt files in the reimbursement pro
 Create an Excel reimbursement summary in `output/`, following the structure of a general reimbursement package.
 
 1. Create `output/` if missing.
-2. Write a workbook such as `output/reimbursement-summary.xlsx`.
+2. Write a workbook such as `output/reimbursement-summary.xlsx`. If the workbook already exists, overwrite it.
 3. Include a main expense sheet with columns:
    - `Nr.`
    - `Date`
@@ -120,5 +120,6 @@ Create an Excel reimbursement summary in `output/`, following the structure of a
    - `Supporting file`
 4. Use `Comments` for concrete explanations, such as the purpose, route, stay period, validity period, payment proof, or why multiple source files support one expense.
 5. Use one row per actual expense. Do not double-count ticket, invoice, confirmation, and payment proof files that support the same cost.
-6. Add a compact summary sheet with totals by category and, when relevant, a separate list of open questions or items that may need eligibility confirmation.
-7. Do not modify templates in `0_Aux/` while creating the summary.
+6. Sort the main expense sheet before assigning `Nr.`: first by `Category`, then by `Date` ascending. Use the category order `交通`/transportation, `住宿`/accommodation, `meal`/food, `其他`/other, while preserving the project's preferred category labels.
+7. Add a compact summary sheet with totals by category and, when relevant, a separate list of open questions or items that may need eligibility confirmation.
+8. Do not modify templates in `0_Aux/` while creating the summary.
