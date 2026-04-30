@@ -1,0 +1,9 @@
+interface:
+  display_name: "Reimbursement"
+  short_description: "Organize reimbursement receipts and summaries"
+  # Default folders:
+  # - ./0_Aux: rules, approval letters, templates, and official reference files.
+  # - ./food: supermarket, grocery, canteen, restaurant, meal, and beverage receipts.
+  # - ./transportation_accomodation: travel, local transport, accommodation invoices, confirmations, and payment proofs.
+  # Other folders are user-created project structure and should be preserved.
+  default_prompt: "Use $reimbursement to organize receipts or summarize expenses for a reimbursement folder."

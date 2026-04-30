@@ -75,6 +75,30 @@ Both search commands produce one sheet per day and one row per official schedule
 
 The `Time` column uses the conference venue's local timezone. The `Location` column stores the physical location only; poster entries with room and board are formatted like `Pavilion 3, P3-#122`.
 
+## `reimbursement`
+
+Organizer for reimbursement materials across research, travel, grants, events, purchasing, and other reimbursable project folders.
+
+- Use default folders: `0_Aux/`, `food/`, and `transportation_accomodation/`
+- Keep official rules, approval letters, and templates in `0_Aux/`
+- Normalize receipt names as `[class]-[date]-[note].[ext]`
+- Use `YYYY-MM-DD` for one-day receipts and `YYYY-MM-DD_to_YYYY-MM-DD` for multi-day receipts or validity periods
+- Preserve or add other category folders such as `registration/`, `supplies/`, `equipment/`, `services/`, or `other/` when needed
+- Create `output/reimbursement-summary.xlsx` for Excel summaries
+- Preserve user-created folders and avoid moving them unless explicitly requested
+- Keep eligibility decisions tied to the official rules and relevant office or funder feedback
+
+### Usage
+
+```md
+Use $reimbursement.
+```
+
+### Typical Commands
+
+- `org receipts`
+- `sum excel`
+
 ## `ai-paper-writing`
 
 Writing assistant for AI top-tier conference/journal papers in LaTeX. This skill is designed to work with a VSCode + LaTeX Workshop workflow. 
