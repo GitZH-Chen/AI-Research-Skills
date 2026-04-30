@@ -118,7 +118,7 @@ Create an Excel reimbursement summary in `output/`, following the structure of a
    - `Currency`
    - `Comments`
    - `Supporting file`
-4. Use `Comments` for concrete explanations, such as the purpose, route, stay period, validity period, payment proof, or why multiple source files support one expense.
+4. Use `Comments` to clearly state the expense category, time/date or covered period, and location. Add concrete context when useful, such as the purpose, route, stay period, validity period, payment proof, or why multiple source files support one expense.
 5. Use one row per actual expense. Do not double-count ticket, invoice, confirmation, and payment proof files that support the same cost.
 6. Sort the main expense sheet before assigning `Nr.`: first by `Category`, then by `Date` ascending. Use the category order `交通`/transportation, `住宿`/accommodation, `meal`/food, `其他`/other, while preserving the project's preferred category labels.
 7. Add a compact summary sheet with totals by category and, when relevant, a separate list of open questions or items that may need eligibility confirmation.
