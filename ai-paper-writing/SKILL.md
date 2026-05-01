@@ -22,6 +22,7 @@ Treat the file layout below as a suggested default, not a requirement. If the us
 - `./Aux/Rebuttal/{venue}-Reviews.md` or `./Aux/Rebuttal/{venue}-{reviewer}.md`: review file(s), either a single file for all reviewers or one file per reviewer (for example `ICLR26-Reviews.md` or `ICLR26-R1.md`).
 - `preamble.tex`: predefined LaTeX macros
 - `xx.bib`: bibliography source (`\bibliography{xx.bib}`)
+- `AGENTS.md`: local prompt file with project-specific custom prompts
 - `.vscode/settings.json`: fixed VS Code LaTeX Workshop settings
 - `.latexmkrc`: fixed local latexmk configuration
 - `.gitignore`: fixed ignore rules aligned with the LaTeX workflow
@@ -112,6 +113,15 @@ When I say `init latex`, initialize the LaTeX workspace for VS Code with LaTeX W
 - Detect the default main file first. If `main.tex` exists, use it as the default root file. If `main.tex` does not exist, ask me which `.tex` file should be treated as the main file before initialization, because the fixed settings below assume `main.tex`.
 - Ensure the folders `Aux/`, `Figs/`, and `Sec/` exist. Create any missing folder before writing the configuration files.
 - Create `.vscode/` if it does not already exist.
+- Write `AGENTS.md` with the exact content below, without adapting or merging:
+
+  ```markdown
+  Use $ai-paper-writing.
+
+  # Custom prompts
+  # add your own prompts below
+  ```
+
 - Write `.latexmkrc` with the exact content below, without adapting or merging:
 
   ```perl
@@ -135,6 +145,23 @@ When I say `init latex`, initialize the LaTeX workspace for VS Code with LaTeX W
     "latex-workshop.latex.outDir": "%DIR%/out",
     "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.clean.fileTypes": [
+      "*.aux",
+      "*.bbl",
+      "*.blg",
+      "*.bcf",
+      "*.fdb_latexmk",
+      "*.fls",
+      "*.log",
+      "*.out",
+      "*.synctex.gz",
+      "*.toc",
+      "*.run.xml",
+      "*.nav",
+      "*.snm",
+      "*.vrb",
+      "*.xdv"
+    ],
     "latex-workshop.latex.rootFile.doNotPrompt": false,
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.latex.autoBuild.run": "onSave",
@@ -188,7 +215,21 @@ When I say `init latex`, initialize the LaTeX workspace for VS Code with LaTeX W
     ],
     "latex-workshop.latex.recipe.default": "latexmk (main.tex)",
     "files.exclude": {
-      "**/out/**": true
+      "**/out/**/*.aux": true,
+      "**/out/**/*.bbl": true,
+      "**/out/**/*.blg": true,
+      "**/out/**/*.bcf": true,
+      "**/out/**/*.fdb_latexmk": true,
+      "**/out/**/*.fls": true,
+      "**/out/**/*.log": true,
+      "**/out/**/*.out": true,
+      "**/out/**/*.synctex.gz": true,
+      "**/out/**/*.toc": true,
+      "**/out/**/*.run.xml": true,
+      "**/out/**/*.nav": true,
+      "**/out/**/*.snm": true,
+      "**/out/**/*.vrb": true,
+      "**/out/**/*.xdv": true
     },
     "ltex.language": "en-US",
     "ltex.enabled": ["latex", "markdown"],
@@ -231,7 +272,9 @@ When I say `init latex`, initialize the LaTeX workspace for VS Code with LaTeX W
 
   ```gitignore
   # LaTeX intermediates and outputs
-  out/
+  out/*
+  !out/
+  !out/*.pdf
   *.aux
   *.bbl
   *.blg
@@ -266,7 +309,7 @@ When I say `init latex`, initialize the LaTeX workspace for VS Code with LaTeX W
   # Aux/*.pdf
   ```
 
-- Do not preserve or merge unrelated existing entries in these three files. The goal of `init latex` is to make them match the fixed template exactly.
+- Do not preserve or merge unrelated existing entries in these four files. The goal of `init latex` is to make them match the fixed template exactly.
 
 After initialization, briefly report which files were written and which folders were created.
 
