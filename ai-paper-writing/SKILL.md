@@ -22,7 +22,7 @@ Treat the file layout below as a suggested default, not a requirement. If the us
 - `./Aux/Rebuttal/{venue}-Reviews.md` or `./Aux/Rebuttal/{venue}-{reviewer}.md`: review file(s), either a single file for all reviewers or one file per reviewer (for example `ICLR26-Reviews.md` or `ICLR26-R1.md`).
 - `preamble.tex`: predefined LaTeX macros
 - `xx.bib`: bibliography source (`\bibliography{xx.bib}`)
-- `AGENTS.md`: local prompt file with project-specific custom prompts
+- `AGENTS.md`: Codex local prompt file with project-specific custom prompts. This skill defaults to Codex. If using another AI tool, such as GitHub Copilot or Claude Code, rename or adapt this prompt file according to that tool's own instruction-file convention.
 - `.vscode/settings.json`: fixed VS Code LaTeX Workshop settings
 - `.latexmkrc`: fixed local latexmk configuration
 - `.gitignore`: fixed ignore rules aligned with the LaTeX workflow
@@ -113,6 +113,7 @@ When I say `init latex`, initialize the LaTeX workspace for VS Code with LaTeX W
 - Detect the default main file first. If `main.tex` exists, use it as the default root file. If `main.tex` does not exist, ask me which `.tex` file should be treated as the main file before initialization, because the fixed settings below assume `main.tex`.
 - Ensure the folders `Aux/`, `Figs/`, and `Sec/` exist. Create any missing folder before writing the configuration files.
 - Create `.vscode/` if it does not already exist.
+- Treat `AGENTS.md` as the default local prompt file for Codex. If the manuscript will be maintained with another AI tool, such as GitHub Copilot or Claude Code, use that tool's corresponding instruction file name and copy or adapt the same prompt content there.
 - Write `AGENTS.md` with the exact content below, without adapting or merging:
 
   ```markdown
